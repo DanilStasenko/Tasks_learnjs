@@ -1,0 +1,1 @@
+const checkSpam = (str) => ( str.toUpperCase().includes('VIAGRA') || str.toUpperCase().includes('XXX') );
