@@ -1,2 +1,0 @@
-let ourPlanetName;
-let currentUserName;

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watches</title>
+    <style>
+        .time {
+            display: flex;
+        }
+        .hours {
+            color: red;
+        }
+        .minutes {
+            color: green;
+        }
+        .seconds {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="time">
+        <p class="hours"></p>
+        <p>:</p>
+        <p class="minutes"></p>
+        <p>:</p>
+        <p class="seconds"></p>
+    </div>
+    <!-- клик по этой кнопке вызовет clockStart() -->
+    <input type="button" onclick="clockStart()" value="Старт">
+
+    <!-- клик по этой кнопке вызовет clockStop() -->
+    <input type="button" onclick="clockStop()" value="Стоп">
+
+    <script>
+        function update() {
+            let watch = document.querySelector('.time');
+            let hours = watch.querySelector('.hours');
+            let minutes = watch.querySelector('.minutes');
+            let seconds = watch.querySelector('.seconds');
+            let date = new Date();
+            
+            hours.textContent = date.getHours();
+            minutes.textContent = date.getMinutes();
+            seconds.textContent = date.getSeconds();
+        }
+
+        let timerId;
+
+        function clockStart() {
+            timerId = setInterval(update, 1000);
+            update();
+        }
+
+        function clockStop() {
+            clearInterval(timerId);
+            timerId = null;
+        }
+
+    </script>
+</body>
+</html>
